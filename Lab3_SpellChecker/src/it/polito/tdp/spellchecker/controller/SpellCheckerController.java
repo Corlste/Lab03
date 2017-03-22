@@ -5,9 +5,11 @@
 package it.polito.tdp.spellchecker.controller;
 
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.spellchecker.model.Dictionary;
+import it.polito.tdp.spellchecker.model.RichWord;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -51,11 +53,16 @@ public class SpellCheckerController {
 
     }
 
+    
     @FXML
     void doSpellCheck(ActionEvent event) {
-    	
+    	LinkedList<RichWord> inputList = dizionario.spellCheckText( txtText.getText().split(" ") ); 
 
-    }
+			
+		}
+
+
+ 
     
 
     @FXML // This method is called by the FXMLLoader when initialization is complete

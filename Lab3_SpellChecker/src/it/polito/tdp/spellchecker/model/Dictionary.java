@@ -43,26 +43,26 @@ public class Dictionary {
 		
 	}
 	
-	public List<RichWord> spellCheckText(List<String> inputTextList){ 
-		List<RichWord> inputText = new LinkedList<RichWord>();
+	public LinkedList<RichWord> spellCheckText(String[] inputTextList){ 
+		LinkedList<RichWord> inputText = new LinkedList<RichWord>();
 
 		int numErrori = 0;
 		
-		for(int i= 0; i<inputTextList.size(); i++){
+		for(int i= 0; i<inputTextList.length; i++){
 			
-			inputTextList.get(i).replaceAll("[ \\p{Punct}]", "");
-			if(dizionario.contains(inputTextList.get(i))==false){
+			inputTextList[i].replaceAll("[ \\p{Punct}]", "");
+			if(dizionario.contains(inputTextList[i])==false){
 				numErrori++;
-				RichWord e = new RichWord(false, inputTextList.get(i));
+				RichWord e = new RichWord(false, inputTextList[i]);
 				inputText.add(e);
 			}else{
-				RichWord e = new RichWord(true, inputTextList.get(i));
+				RichWord e = new RichWord(true, inputTextList[i]);
 				inputText.add(e);
 			}
 		}
 		
 		
-		return null;
+		return inputText;
 	}
 	
 }
