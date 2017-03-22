@@ -46,22 +46,27 @@ public class Dictionary {
 	public LinkedList<RichWord> spellCheckText(String[] inputTextList){ 
 		LinkedList<RichWord> inputText = new LinkedList<RichWord>();
 
-		int numErrori = 0;
 		
 		for(int i= 0; i<inputTextList.length; i++){
 			
 			inputTextList[i].replaceAll("[ \\p{Punct}]", "");
-			if(dizionario.contains(inputTextList[i])==false){
-				numErrori++;
-				RichWord e = new RichWord(false, inputTextList[i]);
-				inputText.add(e);
-			}else{
-				RichWord e = new RichWord(true, inputTextList[i]);
-				inputText.add(e);
-			}
+//			if(dizionario.contains(inputTextList[i])==false){
+//				RichWord e = new RichWord(false, inputTextList[i]);
+//				inputText.add(e);
+//			}else{
+//				RichWord e = new RichWord(true, inputTextList[i]);
+//				inputText.add(e);
+//			}
+			
+			
+			//Ricerca dicotomica
+			
+			
+			
+			
+			
 		}
-		
-		
+				
 		return inputText;
 	}
 	

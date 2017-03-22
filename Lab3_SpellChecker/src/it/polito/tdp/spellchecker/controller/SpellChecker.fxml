@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="it.polito.tdp.spellchecker.controller.SpellCheckerController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.controller.SpellCheckerController">
    <center>
       <VBox BorderPane.alignment="CENTER_RIGHT">
          <children>
@@ -25,7 +24,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <ComboBox fx:id="cmbBox">
+                  <ComboBox fx:id="cmbBox" onAction="#chooseLanguage">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -52,7 +51,7 @@
             <TextArea fx:id="txtResult" />
             <HBox alignment="CENTER_RIGHT">
                <children>
-                  <Label text="Number of errors: ">
+                  <Label fx:id="lblErrors" text="Number of errors: ">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
@@ -71,7 +70,7 @@
       </VBox>
    </center>
    <bottom>
-      <Label text="Time: " BorderPane.alignment="CENTER_LEFT" />
+      <Label fx:id="lblTime" text="Time: " BorderPane.alignment="CENTER_LEFT" />
    </bottom>
    <top>
       <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Lab3_SpellChecker" BorderPane.alignment="CENTER" />

@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -26,6 +27,12 @@ public class SpellCheckerController {
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
 
+    @FXML
+    private Label lblErrors;
+    
+    @FXML
+    private Label lblTime;
+    
     @FXML // fx:id="cmbBox"
     private ComboBox<String> cmbBox; // Value injected by FXMLLoader
 
@@ -56,10 +63,22 @@ public class SpellCheckerController {
     
     @FXML
     void doSpellCheck(ActionEvent event) {
+    	long t1 = System.nanoTime();
+    	int numErr=0;
     	LinkedList<RichWord> inputList = dizionario.spellCheckText( txtText.getText().split(" ") ); 
-
-			
-		}
+    	String boh="";
+    	for (int i=0; i<inputList.size(); i++){
+    		if (inputList.get(i).isCorretta()==false){
+    			boh += inputList.get(i).getParola()+"\n";
+    			numErr++;
+    		}
+    		
+    	}
+    	long t2= System.nanoTime();
+    	txtResult.setText(boh);
+    	lblErrors.setText("Number of errors: "+numErr);
+		lblTime.setText("Time: " + (t2-t1)/1e09 + "secondi");
+	}
 
 
  

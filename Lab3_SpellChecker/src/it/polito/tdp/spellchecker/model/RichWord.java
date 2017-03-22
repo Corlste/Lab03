@@ -5,8 +5,14 @@ public class RichWord {
 	private boolean corretta;
 	private String parola;
 	
+	public RichWord(){}
+	
+	public RichWord(boolean corretta, String parola) {
+		this.corretta = corretta;
+		this.parola = parola;
+	}
 	public boolean isCorretta() {
-		return corretta;
+		return this.corretta;
 	}
 	public void setCorretta(boolean corretta) {
 		this.corretta = corretta;
@@ -18,14 +24,6 @@ public class RichWord {
 		this.parola = parola;
 	}
 	
-	public RichWord(){}
-	
-	
-	public RichWord(boolean corretta, String parola) {
-		super();
-		this.corretta = corretta;
-		this.parola = parola;
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
